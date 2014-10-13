@@ -1,0 +1,165 @@
+/*  ==========================================================================
+    Transition
+    ========================================================================== */
+
+    /*  Simple transition
+        ========================================================================== */
+        .no-transition { @include transition(none); }
+
+        .container:hover .change-color { background-color: darken($orange, 15%); }
+
+    /*  Multiple transition
+        ========================================================================== */
+        .multiple-transition {
+            @include transition(
+                background-color 1s,
+                height 1s 1s
+            );
+        }
+
+        .container:hover .change-multiple {
+            background-color: darken($orange, 15%);
+            height: 300px;
+        }
+
+    /*  Transition display
+        ========================================================================== */
+        .change-display {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hold-display { position: relative; }
+
+        .hold-display:after {
+            position: absolute;
+            z-index: 0;
+            left: 0;
+            top: 50%;
+            margin-top: -15px;
+            width: 100%;
+            height: 35px;
+            content: "¯\\_(ツ)_/¯";
+            color: #fff;
+            font-size: 32px;
+            text-shadow: 1px 1px 0px darken($orange, 10%);
+        }
+
+        .transition-display {
+            opacity: 1;
+            height: 400px;
+            transition: opacity 1s, height 0;
+            @include transition(opacity 1s, height 0s);
+        }
+
+        .container:hover .change-display.no-transition { display: none; }
+
+        .container:hover .change-display.transition-display {
+            opacity: 0;
+            height: 0;
+            @include transition(opacity 1s, height 0s 1s);
+        }
+
+    /*  Transition tabs
+        ========================================================================== */
+        .tabs {
+            list-style: none;
+            margin: 0 0 20px;
+            padding: 0;
+        }
+
+        .tab { display: inline-block; }
+
+        .tab a {
+            display: inline-block;
+            background-color: #333;
+            padding: 5px 10px;
+            @include transition(background-color 1s ease);
+        }
+
+        .tab a.active,
+        .tab a:hover,
+        .tab a:focus {
+            background-color: #111;
+            text-decoration: none;
+        }
+
+        .tab-content {
+            max-width: 400px;
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            @include transition(all .5s ease);
+        }
+
+        .tab-content p { text-align: center; }
+
+        .tab-content.active {
+            opacity: 1;
+            height: auto;
+        }
+
+        .tab-translate .tab-content { @include transform(translateY(-50px)); }
+        .tab-translate .tab-content.active { @include transform(translateY(0)); }
+
+    /*  Transition (accordion)
+        ========================================================================== */
+        .accordion {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .accordion-title { margin: 0 0 10px 0; }
+
+        .accordion-button {
+            display: block;
+            @include transition(all .25s ease);
+            background-color: #333;
+            padding: 10px;
+        }
+
+        .accordion-button:hover,
+        .accordion-button:focus,
+        .accordion-button.active {
+            background-color: #000;
+            text-decoration: none;
+        }
+
+        .accordion-button.active:hover { background-color: #111; }
+
+        .accordion-content {
+            display: none;
+            @include transition(display .5s ease);
+        }
+
+        .accordion-content.active {
+            display: block;
+        }
+
+        .accordion-opacity .accordion-content {
+            display: block;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            @include transition(all 1s ease);
+        }
+
+        .accordion-opacity .accordion-content.active {
+            opacity: 1;
+            max-height: 500px;
+        }
+
+        .accordion-transform .accordion-content {
+            display: block;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            @include transform(translateX(150px));
+            @include transition(all 1s ease);
+        }
+
+        .accordion-transform .accordion-content.active {
+            opacity: 1;
+            @include transform(translateX(0));
+            max-height: 500px;
+        }

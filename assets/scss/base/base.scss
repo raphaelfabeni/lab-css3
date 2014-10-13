@@ -1,0 +1,40 @@
+/*  ==========================================================================
+    Base
+    ========================================================================== */
+    ::-moz-selection {
+        background: #666;
+        text-shadow: none;
+        color: #fff;
+    }
+
+    ::selection {
+        background: #666;
+        text-shadow: none;
+        color: #fff;
+    }
+
+    img,
+    object,
+    embed,
+    iframe { max-width: 100%; }
+
+    img { height: auto; }
+
+    * { @include box-sizing(); }
+
+/*  ==========================================================================
+    Helper classes
+    ========================================================================== */
+    .hover { @include transition(opacity 0.25s ease); }
+    .hover:hover { @include opacity(0.8); }
+
+    .pull-left { float: left; }
+    .pull-right { float: right; }
+
+    .text-left { text-align: left; }
+    .text-right { text-align: right; }
+    .text-center { text-align: center; }
+    .text-justify { text-align: justify; }
+
+    .hide { display: none; }
+    .block { display: block; }

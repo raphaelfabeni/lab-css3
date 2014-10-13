@@ -1,0 +1,90 @@
+/*  ==========================================================================
+    Navigation
+    ========================================================================== */
+
+    @media only screen {
+
+        /*  Home button
+            ========================================================================== */
+            .home {
+                position: fixed;
+                left: 15px;
+                top: 15px;
+                width: 40px;
+                height: 40px;
+                background-color: #666;
+                text-indent: -9999px;
+            }
+
+            .home,
+            .home:after,
+            .home:before { @include transition(all .25s cubic-bezier(0.680, -0.550, 0.265, 1.550)); }
+
+            .home:hover,
+            .home:focus { background-color: #000; }
+
+            .home:hover:after,
+            .home:focus:after { @include transform(rotate(90deg)); }
+
+            .home:after {
+                content: "";
+                position: absolute;
+                left: 10px;
+                top: 10px;
+                width: 20px;
+                height: 20px;
+                @include vertical-gradient(
+                    transparent,
+                    #fff 0%,
+                    #fff 25%,
+                    transparent 25%,
+                    transparent 33%,
+                    #fff 33%,
+                    #fff 58%,
+                    transparent 58%,
+                    transparent 66%,
+                    #fff 66%,
+                    #fff 91%,
+                    transparent 91%
+                );
+            }
+
+            .home:before {
+                content: "Menu";
+                position: absolute;
+                left: 35px;
+                top: 10px;
+                color: #444;
+                font-size: 16px;
+                text-indent: 0;
+                width: 75px;
+                height: 20px;
+                opacity: 0;
+                @include transform(translateX(-50px));
+            }
+
+            .home:hover:before,
+            .home:focus:before {
+                opacity: 1;
+                @include transform(translateX(0));
+            }
+
+        /*  Menu
+            ========================================================================== */
+            .menu {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .menu li a {
+                display: block;
+                background-color: #222;
+                padding: 10px;
+                text-align: left;
+                margin: 5px 0;
+                @include transition(all 0.25s ease);
+            }
+
+            .menu li a:hover { background-color: #111; }
+    }

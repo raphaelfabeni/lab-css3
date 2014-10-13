@@ -1,0 +1,70 @@
+/*  ==========================================================================
+    Animation
+    ========================================================================== */
+
+    .body-animation h1 { margin-bottom: 20px; }
+
+    .element-animation {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        background-color: $orange;
+    }
+
+    /*  Keyframes
+        ========================================================================== */
+        @include keyframes(inferno) {
+            from { top: 0; }
+            to { top: 400px; }
+        }
+
+    /*  Timing function
+        ========================================================================== */
+        .timing-linear { @include animation(inferno 1.5s linear both); }
+        .timing-ease { @include animation(inferno 1.5s ease both); }
+        .timing-ease-in { @include animation(inferno 1.5s ease-in both); }
+        .timing-ease-out { @include animation(inferno 1.5s ease-out both); }
+        .timing-cubic { @include animation(inferno 1.5s cubic-bezier(0.680, -0.550, 0.265, 1.550) both); }
+
+    /*  Delay
+        ========================================================================== */
+        .delay-default { @include animation(inferno 1.5s); }
+        .delay-1 { @include animation(inferno 1.5s 0.5s); }
+        .delay-2 { @include animation(inferno 1.5s 1s); }
+
+    /*  Iteration count
+        ========================================================================== */
+        .iteration-default { @include animation(inferno 1.5s); }
+        .iteration-3 { @include animation(inferno 1.5s 3); }
+        .iteration-infinite { @include animation(inferno 1.5s infinite); }
+
+    /*  Direction
+        ========================================================================== */
+        .direction-default { @include animation(inferno 1.5s infinite); }
+        .direction-reverse { @include animation(inferno 1.5s reverse infinite); }
+        .direction-alternate { @include animation(inferno 1.5s alternate infinite); }
+        .direction-alternate-reverse { @include animation(inferno 1.5s alternate-reverse infinite); }
+
+    /*  Fill-mode
+        ========================================================================== */
+        @include keyframes(inferno-fill) {
+            from {
+                top: 0;
+                background-color: $green;
+            }
+
+            to {
+                top: 400px;
+                background-color: $dark-green;
+            }
+        }
+
+        .fill-mode-default { @include animation(inferno-fill 1.5s 0.75s); }
+        .fill-mode-backwards { @include animation(inferno-fill 1.5s 0.75s backwards); }
+        .fill-mode-forwards { @include animation(inferno-fill 1.5s 0.75s forwards); }
+        .fill-mode-both { @include animation(inferno-fill 1.5s 0.75s both); }
+
+    /*  Play-state
+        ========================================================================== */
+        .play-state-default { @include animation(inferno 1.5s); }
+        .play-state-paused { @include animation(inferno 1.5s paused); }
