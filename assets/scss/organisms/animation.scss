@@ -68,3 +68,27 @@
         ========================================================================== */
         .play-state-default { @include animation(inferno 1.5s); }
         .play-state-paused { @include animation(inferno 1.5s paused); }
+
+    /*  Custom
+        ========================================================================== */
+        @-webkit-keyframes inferno-custom {
+            from { -webkit-transform: translateX(-200%); }
+            to { -webkit-transform: translateX(200%); }
+        }
+
+        @-moz-keyframes inferno-custom {
+            from { -moz-transform: translateX(-200%); }
+            to { -moz-transform: translateX(200%); }
+        }
+
+        @-ms-keyframes inferno-custom {
+            from { -ms-transform: translateX(-200%); }
+            to { -ms-transform: translateX(200%); }
+        }
+
+        @keyframes inferno-custom {
+            from { transform: translateX(-200%); }
+            to { transform: translateX(200%); }
+        }
+
+        .animation-custom { @include animation(inferno-custom 1.5s linear infinite alternate); }
