@@ -11,6 +11,11 @@
         background-color: $orange;
     }
 
+    .container-timing .element-animation {
+        width: 150px;
+        height: 150px;
+    }
+
     /*  Keyframes
         ========================================================================== */
         @include keyframes(inferno) {
@@ -25,6 +30,34 @@
         .timing-ease-in { @include animation(inferno 1.5s ease-in both); }
         .timing-ease-out { @include animation(inferno 1.5s ease-out both); }
         .timing-cubic { @include animation(inferno 1.5s cubic-bezier(0.680, -0.550, 0.265, 1.550) both); }
+        .timing-steps { @include animation(inferno 1.5s steps(5, end) both); }
+
+        /*  Steps
+            ========================================================================== */
+            // @include keyframes(typing) {
+            //     from { width: 0; }
+            //     to { width: 525px; }
+            // }
+
+            // @include keyframes(cursorTyping) {
+            //     from, to { border-color: transparent; }
+            //     50% { border-color: #fff; }
+            // }
+
+            // .type {
+            //     font-family: Consolas, monospace;
+            //     font-size: 36px;
+            //     font-weight: normal;
+            //     border-right: solid 5px #fff;
+            //     letter-spacing: 1px;
+            //     overflow: hidden;
+            //     width: auto;
+            //     white-space: nowrap;
+            //     @include animation(
+            //         cursorTyping 1s step-end infinite,
+            //         typing 3.5s 2s steps(26, end) both
+            //     );
+            // }
 
     /*  Delay
         ========================================================================== */
