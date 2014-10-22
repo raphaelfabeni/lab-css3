@@ -34,30 +34,35 @@
 
         /*  Steps
             ========================================================================== */
-            // @include keyframes(typing) {
-            //     from { width: 0; }
-            //     to { width: 525px; }
-            // }
+            @include keyframes(typing) {
+                from { width: 100% }
+                to { width: 0; }
+            }
 
-            // @include keyframes(cursorTyping) {
-            //     from, to { border-color: transparent; }
-            //     50% { border-color: #fff; }
-            // }
+            @include keyframes(blink-caret) {
+                from, to { border-color: transparent }
+                50% { border-color: #fff }
+            }
 
-            // .type {
-            //     font-family: Consolas, monospace;
-            //     font-size: 36px;
-            //     font-weight: normal;
-            //     border-right: solid 5px #fff;
-            //     letter-spacing: 1px;
-            //     overflow: hidden;
-            //     width: auto;
-            //     white-space: nowrap;
-            //     @include animation(
-            //         cursorTyping 1s step-end infinite,
-            //         typing 3.5s 2s steps(26, end) both
-            //     );
-            // }
+            .type {
+                font-family: Consolas, monospace;
+                position: relative; 
+                font-size: 36px;
+            }
+
+            .type span {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 0;
+                background: #333;
+                border-left: 3px solid #fff;
+
+                @include animation(
+                    typing 5s 10s steps(29, end) both,
+                    blink-caret 1s step-end infinite both
+                );
+            }
 
     /*  Delay
         ========================================================================== */
