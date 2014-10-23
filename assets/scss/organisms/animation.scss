@@ -59,7 +59,7 @@
                 border-left: 3px solid #fff;
 
                 @include animation(
-                    typing 5s 10s steps(29, end) both,
+                    typing 5s 2s steps(29, end) both,
                     blink-caret 1s step-end infinite both
                 );
             }
