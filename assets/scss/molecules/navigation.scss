@@ -77,6 +77,12 @@
                 padding: 0;
             }
 
+            .menu li {
+                @media (max-width: 800px) {
+                    margin: 10px 0;
+                }
+            }
+
             .menu li a {
                 display: block;
                 background-color: #222;

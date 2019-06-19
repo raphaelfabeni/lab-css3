@@ -67,7 +67,7 @@ module.exports = function( grunt ) {
 
             // Update :)
             livereload: {
-                options: { livereload: true },
+                options: { livereload: true, port: 3000 },
                 files: [
                     // Project files
                     '*.html',

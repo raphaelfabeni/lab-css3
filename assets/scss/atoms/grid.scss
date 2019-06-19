@@ -7,3 +7,11 @@
     }
 
     .container { padding: 40px 10px; }
+
+    .container--home {
+    	> section {
+    		@media (max-width: 800px) {
+    			width: 100%;
+        }
+    	}
+    }
